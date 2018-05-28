@@ -52,4 +52,6 @@ class DeckOfCards {
     }
   }
   get giveCards (){return this.cards;}
+
+  drawing() {return this.cards.pop()}
 } //class

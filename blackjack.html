@@ -7,12 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="deck.js"></script>
+    <script src="hand.js"></script>
 </head>
 <body>
     <script>
-        deck=new DeckOfCards();
-        deck.init();
-        deck.giveCard(0);
+        deck=new DeckOfCards(); //deck object
+        deck.init(); //make a deck
+
+        dealer=new Hand();
+        player=new Hand();
+
+        player.draw(deck.drawing())
+
+
+
+         
          
     </script>
      <p>joo</p>
