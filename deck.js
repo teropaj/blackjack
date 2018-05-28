@@ -12,7 +12,7 @@ class DeckOfCards {
 //makes a deck
   init() {
     var valueOfCard;
-    var cardIndex=1;
+    var cardIndex=0;
     for (let indexOfSuites in this.suites){
       for(let index=1;index<=13;index++){
         //cards(indexOfSuites,index);
@@ -25,23 +25,33 @@ class DeckOfCards {
 
 
 
-
+        if(cardIndex==48){
+          cl('joo');
+        }
         this.cards[cardIndex] ={suite:this.suites[indexOfSuites],
           number:index,value:valueOfCard};
-         
+        //cl(cardIndex+' '+this.cards[cardIndex]==undefined);
+        //this.cards.forEach(value=>{if(value.number=='undefined') cl('UNDEFINED '+index)});
+        if(typeof this.cards[cardIndex]=='undefined') {cl('UNDEFINED')}
+        cl(' '+ cardIndex+' '+typeof this.cards[cardIndex]+'index: '+index );
+
+        
         cardIndex++;
 
       }
      
     }
-    this.shuffle();
+    cl('cardIndex '+cardIndex);
+    cl(this.cards);
+
+    //this.shuffle();
     console.log(this.cards);
   //console.log('(makeDeck length is '+player.length+'counter is '+counter);
   } 
   giveCard (card){return this.cards[card];}
 
   shuffle() {
-    for (var b=1;b<=52;b++){
+    for (var b=1;b<=53;b++){
       var random=Math.floor(Math.random() * 52);
       var c=this.cards[random];
       
