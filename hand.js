@@ -15,7 +15,7 @@ class Hand {
                  
                 var printNumber=this.jackQueenKing(card.number);
                 cl(this.name+' card '+card.suite+' '+printNumber);
-                console.log('Score '+this.calculateScore(card));
+                console.log(this.name+' Score '+this.calculateScore(card));
             }
 
     calculateScore(card) {  //is ace and gives 1 or 11 points

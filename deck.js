@@ -25,9 +25,7 @@ class DeckOfCards {
 
 
 
-        if(cardIndex==48){
-          cl('joo');
-        }
+      
         this.cards[cardIndex] ={suite:this.suites[indexOfSuites],
           number:index,value:valueOfCard};
         //cl(cardIndex+' '+this.cards[cardIndex]==undefined);
@@ -44,14 +42,14 @@ class DeckOfCards {
     cl('cardIndex '+cardIndex);
     cl(this.cards);
 
-    //this.shuffle();
+    this.shuffle();
     console.log(this.cards);
   //console.log('(makeDeck length is '+player.length+'counter is '+counter);
   } 
   giveCard (card){return this.cards[card];}
 
   shuffle() {
-    for (var b=1;b<=53;b++){
+    for (var b=0;b<=51;b++){
       var random=Math.floor(Math.random() * 52);
       var c=this.cards[random];
       

@@ -1,1 +1,1 @@
-function cl(message){console.log(message);}
+function cl(message){}//console.log(message);}
