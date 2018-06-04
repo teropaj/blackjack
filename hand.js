@@ -14,22 +14,44 @@ class Hand {
                 this.cardNumbers.push(card.number); 
                  
                 var printNumber=this.jackQueenKing(card.number);
-                cl(this.name+' card '+card.suite+' '+printNumber);
-                console.log(this.name+' Score '+this.calculateScore(card));
+                //cl(this.name+' card '+card.suite+' '+printNumber);
+                console.log(this.name+' card '+card.suite+' '+printNumber+' Score '+this.calculateScore(card));
             }
 
-    calculateScore(card) {  //is ace and gives 1 or 11 points
-                            if (this.score<=10 && card.value=="ace1or11") {this.score+=11;this.isAce=true;return 'Ace: '+this.score;}
-                          if (this.score>10 && card.value=="ace1or11") {this.score++;this.isAce=true;return 'Ace: '+this.score;}
-                        
-                          //checks is blackjack
-                          if(this.cardCounter>1){
-                            this.cardNumbers.forEach(element => {if (element==13 || element=="ace1or11") this.kingAndAce++;})
-                            if (this.kingAndAce==2) return "blackjack";    
-                          };
+    calculateScore(card) {  // if first card
+                        if(this.cardCounter==1) { 
+                            //is Ace??
+                            if (card.value=="ace1or11"){    
+                            this.isAce=true;this.score+=11;return this.name+": "+"Ace score:"+this.score
+                            }
+                            // first card is not ace
+                            else {this.score+=card.value;return this.score;}
+                    
+                        }
 
-                          this.score+=card.value;
-                          return this.score;
+                        // if second card
+                        if(this.cardCounter==2){
+                            //is blackjack
+                            if (this.isAce==true && card.number>9) {
+                                return 'Blackjack'}
+                            // is no blackjack
+                            else {
+                                //score <=10 and card is Ace
+                                if(this.score<=10 &&card.value=='ace1or11') {this.score+=11;return this.score;}
+                                if(this.score>10 &&card.value=='ace1or11') {this.score++;return this.score;}
+                                
+                                this.score+=card.value;return this.score;
+                            
+                            }
+
+
+
+
+
+                        }
+        
+
+                         
                          
     } //calculateScore ends
 

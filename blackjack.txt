@@ -76,11 +76,19 @@ Deck
 
 
 
-Dealer
+Hand
 
 	functions 
 		 
-		shareCards
+		draw()
+		calculateScore()
+						- is first --> is Ace
+						- is second --> if isAce==true blackJack???
+						- is a picture card?
+						- is blackjack?
+						- add score
+
+		jackQueenKing
 		
 
 
