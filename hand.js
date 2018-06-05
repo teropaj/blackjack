@@ -7,22 +7,26 @@ class Hand {
         //this.cardNumbers=[]  //values of cards is saved here to check blackjack
         this.kingAndAce=0;
         this.name=name;
+        this.addCard=true;
     }
 
     draw(card) {console.log('');
-                this.cards[this.cardCounter]=card;//put card
-                this.cardCounter++;
-                cl('Hand raw 13 '+card);
-                //this.cardNumbers.push(card.number); 
+                if (this.addCard=true){
+                    this.cards[this.cardCounter]=card;//put card
+                    this.cardCounter++;
+                    cl('Hand raw 13 '+card);
+                    //this.cardNumbers.push(card.number); 
                  
-                var printNumber=this.jackQueenKing(card.number);
-                //cl(this.name+' card '+card.suite+' '+printNumber);
-                cl(card);
-                var result=this.calculateScore(card);
-                if(this.score>21) console.log('Score over 21. '+this.name+' loses');
-                cl(result+' OWN typeof '+typeof result);
+                    var printNumber=this.jackQueenKing(card.number);
+                    //cl(this.name+' card '+card.suite+' '+printNumber);
+                    cl(card);
+                    var result=this.calculateScore(card);
+                    console.log(this.name+" "+card.suite+' '+printNumber+' Score '+result);
+                    if(this.score>21) {console.log('Score over 21. '+this.name+' loses');this.addCard=false;return}
+                    cl(result+' OWN typeof '+typeof result);
+                }
                 //if (typeof result=='undefined') {cl('OWN OWN undefined');exit();}
-                console.log(this.name+' '+this.cardCounter+'. card '+card.suite+' '+printNumber+' Score '+result);
+                 
                  
                 //if (dealer.cards.lenght<player.cards.lenght && dealer.score<17) dealer.draw(deck.drawing());
                 
@@ -61,11 +65,14 @@ class Hand {
                             
                             }
                         }
-                        if (this.cardCounter>2){
+                        if (player.cardCounter>2){
                             cl('was player'); 
+                            /*
                             if(this.score<=10 &&card.value=='ace1or11') {this.score+=11;return this.score;}
                             if(this.score>10 &&card.value=='ace1or11') {this.score++;return this.score;}
                             this.score+=card.value;
+                            */
+                            this.addScore(card);
 
 
                             this.dealerAddCard(); 
@@ -95,19 +102,26 @@ class Hand {
         }
         return number;
       }
-    dealerScoreToOver17 (){cl('was here');
+    dealerScoreToOver17 (){cl('was here'+dealer.score);
         while(dealer.score<17) {this.dealerAddCard()}
                             this.checkWinner()}
-    dealerAddCard (){if(dealer.score<17) {dealer.draw(deck.drawing());dealer.score+=dealer.cards[dealer.cards.length-1];}}
+    dealerAddCard (){cl(dealer.score);if(dealer.score<17) {dealer.draw(deck.drawing())}}
 
     checkWinner () {
         if (dealer.score>21)
          {console.log(this.name+" loses");return}
+        
         let a=(dealer.score<player.score) ? "Player wins":"Dealer wins"
         console.log(a);
         
         
         }
+    addScore(card){
+        if(this.score<=10 &&card.value=='ace1or11') {this.score+=11;return}
+        if(this.score>10 &&card.value=='ace1or11') {this.score++;return}
+        this.score+=card.value;
+        return
+    }
     
 
     
