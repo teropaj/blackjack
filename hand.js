@@ -68,12 +68,14 @@ class Hand {
                             this.score+=card.value;
 
 
-                            if(dealer.score<17) {dealer.draw(deck.drawing());dealer.score+=dealer.cards[dealer.cards.length+1];
-                            }
-                            return card.value;
-
-
+                            this.dealerAddCard(); 
+                            
+                            return this.score;
                         }
+                        
+
+
+                        
 
                          
         
@@ -93,13 +95,24 @@ class Hand {
         }
         return number;
       }
-     
-    dealerAddCard (){while (dealer.score<17){}
+    dealerScoreToOver17 (){cl('was here');
+        while(dealer.score<17) {this.dealerAddCard()}
+                            this.checkWinner()}
+    dealerAddCard (){if(dealer.score<17) {dealer.draw(deck.drawing());dealer.score+=dealer.cards[dealer.cards.length-1];}}
 
+    checkWinner () {
+        if (dealer.score>21)
+         {console.log(this.name+" loses");return}
+        let a=(dealer.score<player.score) ? "Player wins":"Dealer wins"
+        console.log(a);
+        
+        
+        }
+    
 
-    }
+    
 
                           
 
-    
+
 } //class
