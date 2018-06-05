@@ -68,7 +68,7 @@ class Hand {
                             this.score+=card.value;
 
 
-                            if(dealer.score<17) {dealer.draw(deck.drawing());dealer.score+=dealer.cards[dealer.card.length];
+                            if(dealer.score<17) {dealer.draw(deck.drawing());dealer.score+=dealer.cards[dealer.cards.length+1];
                             }
                             return card.value;
 
