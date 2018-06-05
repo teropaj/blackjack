@@ -58,6 +58,7 @@ class DeckOfCards {
       
       
     }
+    console.log(this.cards);
   }
   get giveCards (){return this.cards;}
 
