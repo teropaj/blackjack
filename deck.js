@@ -43,7 +43,7 @@ class DeckOfCards {
     cl(this.cards);
 
     this.shuffle();
-    console.log(this.cards);
+    //console.log(this.cards);
   //console.log('(makeDeck length is '+player.length+'counter is '+counter);
   } 
   giveCard (card){return this.cards[card];}
@@ -58,7 +58,7 @@ class DeckOfCards {
       
       
     }
-    console.log(this.cards);
+    //console.log(this.cards);
   }
   get giveCards (){return this.cards;}
 

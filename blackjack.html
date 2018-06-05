@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Blackjack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="cl.js"></script>
@@ -11,91 +11,30 @@
     <script src="hand.js"></script>
 </head>
 <body>
-        <table id="table" style="width:50%">
-                <tr>
-                  <th>Player</th>
-                  <th>Dealer</th> 
-                </tr>
-                 
-                <tr>
-                  <td>Score</td>
-                  <td>Score</td>
-                  <td>80</td>
-                </tr>
-              </table>
+         
 
         <button onclick="player.draw(deck.drawing())">Hit</button>
          
-        <button onclick="stand=true;dealer.dealerScoreToOver17()">Stand</button>
+        <button onclick="dealer.dealerScoreToOver17()">Stand</button>
     <script>
         deck=new DeckOfCards(); //deck object
         deck.init(); //make a deck
 
         dealer=new Hand('dealer');
         player=new Hand('player');
-        var stand=false;
-
-        var table = document.getElementById("table");
-        var row = table.insertRow(1);
-
-        function stand(){
-            let dealerScore=dealer.score;
-             
-            while (dealer.score<17){
-                let card=deck.drawing()
-                dealer.cards.push(card);
-                dealer.score+=card.number;
-
-                if(dealer.score>21) {console.log('Player wins!');break}
-
-
-            
-            
-            
-            
-            }
-
-
-
-
-
-
-        }
-        /*
-        player.draw(deck.drawing());
-        //console.log(player.cards[0]);
-        dealer.draw(deck.drawing());
-        //console.log(dealer.cards[0]);
-        player.draw(deck.drawing());
-        //console.log(player.cards[1]);
-        dealer.draw(deck.drawing());
-        //console.log(dealer.cards[0]);
-        */
          
-/*
-        while(dealer.score<17) {
-            cl('dealer.score is: '+dealer.score);
-            cl('raw blackjack 47')
-            dealer.draw(deck.drawing());
-        }
-*/
-        /*
-        function myFunction() {
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "NEW CELL1";
-    cell2.innerHTML = "NEW CELL2";
-    */
+
+         
+
+         
+        
 </script>
 
 
 
          
          
-    </script>
-     <p>joo</p>
+    
 </body>
 </html>
 
