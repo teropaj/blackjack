@@ -13,7 +13,7 @@
 <body>
          
 
-        <button onclick="player.draw(deck.drawing())">Hit</button>
+        <button onclick="hit()">Hit</button>
          
         <button onclick="player.addCard=false;dealer.dealerScoreToOver17()">Stand</button>
     <script>
@@ -22,6 +22,19 @@
 
         dealer=new Hand('dealer');
         player=new Hand('player');
+
+        var hits=0;
+        var isOver=false;
+
+        hit = ()=>{ 
+
+            if(isOver==false){
+                if(dealer.addCard==true) dealer.draw(deck.drawing());
+                if(player.addCard==true)  player.draw(deck.drawing());
+                cl(player.cards)
+                console.log('')
+            }
+        }
          
 
          
