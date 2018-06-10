@@ -8,6 +8,9 @@ class Hand {
         this.kingAndAce=0;
         this.name=name;
         this.addCard=true;
+        this.me=this.name
+        this.otherplayer=(this.me=='player') ? 'dealer' :'player'
+        this.lose=false;
     }
 
     draw(card) {//gives rusult :Score,'over21' or 'blacjack'
@@ -27,7 +30,7 @@ class Hand {
                         console.log(this.name+" "+card.suite+' '+printNumber+' Score '+result);
                     }
 
-                    if(this.score>21) {console.log('Score over 21. '+this.name+' loses');this.addCard=false;return 'over21';}
+                    if(this.score>21) {console.log(this.name+' Score over 21. '+this.name);this.addCard=false;this.lose=true;return 'over21';}
                     cl(result+' OWN typeof '+typeof result);
                 }
                 //if (typeof result=='undefined') {cl('OWN OWN undefined');exit();}
@@ -39,6 +42,7 @@ class Hand {
 
     calculateScore(card) {  // if first card
                         if(this.cardCounter==1) { 
+
                             //if dealer has not any cards
                             if(dealer.cards.length==0) dealer.draw(deck.drawing());
                             //is Ace??
@@ -52,6 +56,7 @@ class Hand {
 
                         // if second card
                         if(this.cardCounter==2){
+                            stand.disabled=false;
 
                             //if dealer has has only 1 card
                             if(dealer.cards.length==1) dealer.draw(deck.drawing());
@@ -112,20 +117,30 @@ class Hand {
         return number;
       }
     dealerScoreToOver17 (){cl('was here'+dealer.score);
-        while(dealer.score<17) {this.dealerAddCard()}
-                            this.checkWinner();}
+        if(dealer.score<player.score){
+            while(dealer.score<17) {this.dealerAddCard()}
+            this.checkWinner();
+            
+        }
+    }
     dealerAddCard (){cl(dealer.score);if(dealer.score<17) {dealer.draw(deck.drawing());
+        if(dealer.score<player.score && dealer.score<21) dealer.draw(deck.drawing());
+        dealer.addCard=false;
         }
     }
 
     checkWinner () {
-        if (this.score>21)
-         {console.log(this.name+" loses");this.addCard=false;return}
-        
-        let a=(dealer.score<player.score) ? "Player wins":"Dealer wins"
-        console.log(a);
-         
-        return  
+        if(player.lose==false && dealer.lose==false){
+            if (this.score>21)
+            {console.log(this.name+" loses");this.addCard=false;return}
+            if (dealer.score<player.score) {if (dealer.addCard==true) dealer.draw(deck.drawing());}
+
+
+            let a=(dealer.score<player.score) ? player.score<22 ? "Player wins" : "Player over 21" :"Dealer wins"
+            console.log(a);
+            
+            return  
+        }
         
         
         }

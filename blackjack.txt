@@ -24,6 +24,8 @@ To simulate drawing from a deck, the array should update so that the drawn objec
 the pop() function to do this.
 Sprint 3 - The first round
 
+
+
 Now let's deal out the cards we pulled from the deck in the previous sprint.
 
  
@@ -58,11 +60,27 @@ the dealer will start drawing cards. The dealer will draw cards until their valu
 
 Deciding the winner:
 After the dealer's hand value is at least 17 (and not over 21), the game should check if player's hand is higher than dealer's. If player's hand is 
-lower than dealer's, the player loses. If the player's hand is higher than dealer's, the dealer will draw cards until their value either exceeds player's 
-hand or they go over 21 and bust. If they bust, the player wins. If dealer's value is higher, the player loses.
+lower than dealer's, the player loses. If the player's hand is higher than dealer's, the dealer will draw cards until their
+ value either exceeds player's hand or they go over 21 and bust. If they bust, the player wins. If dealer's value is 
+ higher, the player loses.
 
 ------------------------------------------------
 
+https://fi.wikipedia.org/wiki/Blackjack
+
+Pelaaja pelaa pankkia (jakaja) vastaan. Jakaja jakaa pelaajalle kaksi korttia kuvapuoli ylöspäin ja itselleen kaksi
+ korttia, joista toisen kuvapuoli ylöspäin ja toisen kuvapuoli alaspäin. Pelaaja ilmoittaa, haluaako hän uuden kortin.
+  Jakaja jakaa, kunnes pelaaja ei tahdo enää lisää kortteja tai korttien summa on yli kaksikymmentäyksi. Tämän jälkeen
+   jakaja ottaa itselleen kortteja, kunnes hänen kätensä on kuusitoista tai enemmän. Jos käden arvo on seitsemäntoista
+    tai enemmän, jakaja ei saa ottaa enempää kortteja. Pelin voittaa se, jolla korttien yhteislukema on suurempi
+	 menemättä yli kahtakymmentäyhtä tai tasan 21. Kahdella ensimmäisellä kortilla saatu pistemäärä 
+	 kaksikymmentäyksi on nimeltään blackjack ja se voittaa useammalla kuin kahdella kortilla saadun 
+	 21 pisteen summan. Jos pelaajalla ja jakajalla on yhteislukema sama, pelaaja häviää, paitsi jos kyseessä 
+	 on tasapeli kahdessakymmenessäyhdessä tai blackjackissä (niin sanottu stand off). Jos yhteislukema on suurempi
+	  kuin kaksikymmentäyksi, sen summan saanut häviää. 
+
+
+--------------------------------------------------------
 BLACKJACK
 
 classes

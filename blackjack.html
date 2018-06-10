@@ -13,10 +13,14 @@
 <body>
          
 
-        <button onclick="hit()">Hit</button>
+        <button id="hit" onclick="hit()">Hit</button>
          
-        <button onclick="player.addCard=false;dealer.dealerScoreToOver17()">Stand</button>
+        <button id="stand" onclick="player.addCard=false;dealer.dealerScoreToOver17()">Stand</button>
     <script>
+        var id=document.getElementById('id');
+        var stand=document.getElementById('stand');
+        stand.disabled=true;
+
         deck=new DeckOfCards(); //deck object
         deck.init(); //make a deck
 
@@ -29,7 +33,7 @@
         hit = ()=>{ 
 
             if(isOver==false){
-                if(dealer.addCard==true) dealer.draw(deck.drawing());
+                if(dealer.addCard==true) {if (dealer.score<17 || dealer.score<player.score && dealer.score<21) dealer.draw(deck.drawing());}
                 if(player.addCard==true)  player.draw(deck.drawing());
                 cl(player.cards)
                 console.log('')
